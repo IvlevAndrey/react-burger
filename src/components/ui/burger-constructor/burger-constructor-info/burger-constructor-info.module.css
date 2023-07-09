@@ -1,0 +1,15 @@
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.price {
+  display: flex;
+  align-items: center;
+}
+
+.price svg {
+  width: 36px;
+  height: 36px;
+}

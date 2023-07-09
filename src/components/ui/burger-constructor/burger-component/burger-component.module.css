@@ -1,0 +1,9 @@
+.component {
+  display: flex;
+  align-items: center;
+}
+
+.icon_container {
+  min-width: 32px;
+  max-width: 32px;
+}

@@ -1,0 +1,10 @@
+.button {
+  display: flex;
+  align-items: center;
+  color: var(--text-inactive-color);
+  white-space: nowrap;
+}
+
+svg {
+  margin-right: 8px;
+}
