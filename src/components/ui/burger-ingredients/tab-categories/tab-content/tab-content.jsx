@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid';
-
 import css from './tab-content.module.css';
 import cssScrollbar from '../../../common/scrollbar/scrollbar.module.css';
 import { PropTypes } from 'prop-types';
@@ -34,13 +32,15 @@ export function TabContent({ bunRef, mainRef, sauceRef, ingredients, onOpenIngre
         <section className={`${css.tab_content} ${cssScrollbar.styled_scrollbars}`}>
             {ingredientGroups
                 .map(
-                    ingredientGroup =>
+                    ingredientGroup => (
+
                         <IgredientCardList
-                            key={uuid()}
+                            key={ingredientGroup[0]}
                             name={ingredientGroup[0]}
                             ingredients={ingredientGroup[1]}
                             titleRef={getRefByIngredientType(ingredientGroup[0])}
                             onOpenIngredientModal={onOpenIngredientModal} />
+                    )
                 )
             }
         </section>

@@ -1,6 +1,5 @@
 import { PropTypes } from 'prop-types';
 import { IngredientCard } from '../ingredient-card/ingredient-card';
-import { v4 as uuid } from 'uuid';
 
 import css from './ingredient-card-list.module.css';
 
@@ -19,12 +18,16 @@ export function IgredientCardList({ name, ingredients, titleRef, onOpenIngredien
         <section className='pt-10'>
             <p className="text text_type_main-medium pb-3" ref={titleRef}>{IngredientTypesRu(name)}</p>
             <div className={css.content}>
-                {ingredients.map(
-                    ingredient =>
-                        <IngredientCard
-                            key={uuid()}
-                            ingredient={ingredient}
-                            onOpenIngredientModal={onOpenIngredientModal} />)}
+                {ingredients
+                    .map(
+                        ingredient => (
+                            <IngredientCard
+                                key={ingredient._id}
+                                ingredient={ingredient}
+                                onOpenIngredientModal={onOpenIngredientModal} />
+                        )
+                    )
+                }
             </div>
         </section>
     );
