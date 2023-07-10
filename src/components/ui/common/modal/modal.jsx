@@ -6,6 +6,8 @@ import { useEffect } from 'react';
 
 import css from './modal.module.css';
 
+const modalRoot = document.getElementById("react-modals");
+
 Modal.propTypes = {
     children: PropTypes.element.isRequired,
     header: PropTypes.string,
@@ -13,11 +15,9 @@ Modal.propTypes = {
 }
 
 export function Modal({ children, header, onClose }) {
-    const modalRoot = document.getElementById("react-modals");
 
     useEffect(() => {
         const onKeyDown = (e) => {
-            console.log(e.key)
             if (e.key === "Escape") onClose();
         }
 

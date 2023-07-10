@@ -1,19 +1,21 @@
-import { IgredientCardList } from './../../ingredient-card-list/ingredient-card-list';
+import { v4 as uuid } from 'uuid';
 
 import css from './tab-content.module.css';
 import cssScrollbar from '../../../common/scrollbar/scrollbar.module.css';
 import { PropTypes } from 'prop-types';
 import { IngredientTypes } from "../../../../../utils/consts";
 import { IngredientPropTypes } from "../../../../../utils/prop-types";
+import { IgredientCardList } from './../../ingredient-card-list/ingredient-card-list';
 
 TabContent.propTypes = {
     bunRef: PropTypes.object,
     mainRef: PropTypes.object,
     sauceRef: PropTypes.object,
-    ingredients: PropTypes.arrayOf(IngredientPropTypes).isRequired
+    ingredients: PropTypes.arrayOf(IngredientPropTypes).isRequired,
+    onOpenIngredientModal: PropTypes.func.isRequired
 }
 
-export function TabContent({ bunRef, mainRef, sauceRef, ingredients }) {
+export function TabContent({ bunRef, mainRef, sauceRef, ingredients, onOpenIngredientModal }) {
 
     const ingredientGroups = getIngredientsGroupByType(ingredients);
 
@@ -31,12 +33,14 @@ export function TabContent({ bunRef, mainRef, sauceRef, ingredients }) {
     return (
         <section className={`${css.tab_content} ${cssScrollbar.styled_scrollbars}`}>
             {ingredientGroups
-                .map((ingredientGroup) =>
-                    IgredientCardList({
-                        name: ingredientGroup[0],
-                        ingredients: ingredientGroup[1],
-                        ref: getRefByIngredientType(ingredientGroup[0])
-                    })
+                .map(
+                    ingredientGroup =>
+                        <IgredientCardList
+                            key={uuid()}
+                            name={ingredientGroup[0]}
+                            ingredients={ingredientGroup[1]}
+                            titleRef={getRefByIngredientType(ingredientGroup[0])}
+                            onOpenIngredientModal={onOpenIngredientModal} />
                 )
             }
         </section>

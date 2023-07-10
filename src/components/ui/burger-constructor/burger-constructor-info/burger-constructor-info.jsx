@@ -26,7 +26,7 @@ export function BurgerConstructorInfo({ price = 0 }) {
 
             {modalOpen &&
                 <Modal onClose={() => setModalOpen(false)}>
-                    <OrderDetails orderId="034536" />
+                    <OrderDetails orderId={34536} />
                 </Modal>
             }
         </>

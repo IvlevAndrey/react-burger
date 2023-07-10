@@ -7,7 +7,7 @@ IngredientProperty.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.number.isRequired,
     measure: PropTypes.string.isRequired,
-    isLast: PropTypes.bool.isRequired,
+    isLast: PropTypes.bool,
 }
 
 export function IngredientProperty({ name, value, measure, isLast }) {

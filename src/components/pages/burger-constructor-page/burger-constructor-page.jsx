@@ -8,7 +8,6 @@ BurgerConstructorPage.propTypes = {
 }
 
 export function BurgerConstructorPage({ ingredients }) {
-
   return (
     <>
       <BurgerIngredients ingredients={ingredients} />

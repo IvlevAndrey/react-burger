@@ -5,7 +5,7 @@ import css from './modal-header.module.css'
 import { PropTypes } from 'prop-types';
 
 ModalHeader.propTypes = {
-    children: PropTypes.string.isRequired,
+    children: PropTypes.string,
     onClose: PropTypes.func.isRequired
 }
 

@@ -6,10 +6,11 @@ import { PropTypes } from 'prop-types';
 import { IngredientPropTypes } from './../../../../utils/prop-types';
 
 TabCategories.propTypes = {
-    ingredients: PropTypes.arrayOf(IngredientPropTypes).isRequired
+    ingredients: PropTypes.arrayOf(IngredientPropTypes).isRequired,
+    onOpenIngredientModal: PropTypes.func.isRequired
 }
 
-export function TabCategories({ ingredients }) {
+export function TabCategories({ ingredients, onOpenIngredientModal }) {
     const bunRef = useRef();
     const mainRef = useRef();
     const sauceRef = useRef();
@@ -17,7 +18,11 @@ export function TabCategories({ ingredients }) {
     return (
         <>
             <TabHeaders bunRef={bunRef} mainRef={mainRef} sauceRef={sauceRef} />
-            <TabContent ingredients={ingredients} bunRef={bunRef} mainRef={mainRef} sauceRef={sauceRef} />
+            <TabContent
+                ingredients={ingredients}
+                bunRef={bunRef} mainRef={mainRef}
+                sauceRef={sauceRef}
+                onOpenIngredientModal={onOpenIngredientModal} />
         </>
     );
 }

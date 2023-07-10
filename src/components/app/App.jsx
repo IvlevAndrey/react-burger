@@ -13,12 +13,18 @@ function App() {
 
   useEffect(() => {
     const getIngredients = async () => {
-      setState({ ...state, loading: true });
-      const response = await clientApi.getIngredients()
-      if (response.isSuccess) {
-        setState({ ingredients: response.result, loading: false, isFetchSuccess: true });
+      try {
+        setState({ ...state, loading: true });
+        const response = await clientApi.getIngredients()
+        if (response) {
+          setState({ ingredients: response.data, loading: false, isFetchSuccess: true });
+        }
+        else {
+          setState({ ...state, loading: false, isFetchSuccess: false });
+        }
       }
-      else {
+      catch (error) {
+        console.log(`Ошибка при получении ингредиентов: ${error}`);
         setState({ ...state, loading: false, isFetchSuccess: false });
       }
     }

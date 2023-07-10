@@ -1,4 +1,5 @@
 import { BurgerComponent } from "../burger-component/burger-component";
+import { v4 as uuid } from 'uuid';
 
 import css from './burger-component-list.module.css';
 import cssScrollbar from '../../common/scrollbar/scrollbar.module.css';
@@ -18,7 +19,7 @@ export function BurgerComponentList({ ingredients }) {
         <section className={`pb-10`}>
             <BurgerComponent ingredient={bun} isTop />
             <div className={`${css.scrollable_ingredient_list} ${cssScrollbar.styled_scrollbars} pr-2`}>
-                {ingredientsWithoutBun.map(ingredient => BurgerComponent({ ingredient }))}
+                {ingredientsWithoutBun.map(ingredient => <BurgerComponent key={uuid()} ingredient={ingredient} />)}
             </div>
             <BurgerComponent ingredient={bun} isBottom />
         </section>
