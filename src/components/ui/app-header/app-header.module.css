@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  background-color: var(--background);
+  display: flex;
+  justify-content: center;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1240px;
+  min-width: 1240px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.logo {
+  text-align: center;
+  width: 100%;
+}

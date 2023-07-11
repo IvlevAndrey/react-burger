@@ -1,0 +1,4 @@
+.tab_content {
+  max-height: 60vh;
+  overflow-y: scroll;
+}

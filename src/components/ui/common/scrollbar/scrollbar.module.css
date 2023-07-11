@@ -1,0 +1,16 @@
+.styled_scrollbars {
+  /* плашка-бегунок и фон */
+  scrollbar-color: var(--text-inactive-color) var(--background-element);
+}
+.styled_scrollbars::-webkit-scrollbar {
+  width: 8px; /* в основном для вертикальных полос прокрутки */
+  height: 8px; /* в основном для горизонтальных полос прокрутки */
+}
+.styled_scrollbars::-webkit-scrollbar-thumb {
+  /* плашка-бегунок */
+  background: var(--text-inactive-color);
+}
+.styled_scrollbars::-webkit-scrollbar-track {
+  /* фон */
+  background: var(--background-element);
+}
